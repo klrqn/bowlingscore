@@ -1,14 +1,22 @@
 #include <assert.h>
+// #include <conio.h>
 #include <cs50.h>
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
+#define TRUE 1
+#define FALSE 0
+
+void print_date_and_time(void);
 bool isStrike(string);
 
 int main(void)
 {
+
+    print_date_and_time();
 
 
     string game = get_string("enter the individual scores of your game (as an array): ");
@@ -65,6 +73,15 @@ bool isStrike(char score[2])
         }
     }
     return false;
+}
+
+void print_date_and_time()
+{
+    time_t t;
+    char now[20];
+    time(&t);
+    strcpy(now, ctime(&t));
+    printf("%s", now);
 }
 
 
